@@ -1,0 +1,16 @@
+.footer{
+    background-color: antiquewhite;
+    margin: 20px;
+    text-align-last: center;
+}
+
+a[href^='mailto']::before {
+    content: '📧 ';
+  }
+  
+  a[href^='tel']::before {
+    content: '📞 ';
+  }
+  ul{
+    list-style-type: none;
+  }
