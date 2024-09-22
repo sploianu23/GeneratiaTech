@@ -25,7 +25,7 @@
 </head>
 <body>
 
-    <form action="<?php echo $destination ?>" method='get' class="d-flex" role="search">
+    <form action="<?php echo $destination ?>" method='get' class="d-flex form-inline my-2 my-lg-0" role="search">
         <input 
             name='s' 
             class="form-control me-2" 

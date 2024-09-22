@@ -9,7 +9,8 @@ $moviesToDisplay = isset($filteredMovies) ? $filteredMovies : $movies;
     foreach ($moviesToDisplay as $movie): 
         // Start a new row after every third card
         if ($counter % 3 == 0 && $counter != 0): ?>
-            </div><div class="row"> <!-- Close the row and start a new one -->
+            </div>
+            <div class="row mt-4"> <!-- Add margin-top for spacing -->
         <?php endif; ?>
         
         <div class="col-md-4 mb-4" id="<?php echo $movie['id']; ?>">
@@ -21,10 +22,8 @@ $moviesToDisplay = isset($filteredMovies) ? $filteredMovies : $movies;
                         <?php 
                         $plot = $movie['plot'];
                         if (strlen($plot) > 100) {
-                            // Display only the first 100 characters followed by three dots
                             echo htmlspecialchars(substr($plot, 0, 100) . "..."); 
                         } else {
-                            // Display the entire plot if it's less than or equal to 100 characters
                             echo htmlspecialchars($plot); 
                         }
                         ?>

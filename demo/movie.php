@@ -28,6 +28,7 @@
     
 
             <div class="container">
+                <div class='content'>
                 <h2><?php echo $movie['title'] ?>
                     <?php if (check_old_movies($movie['year']) !== FALSE): ?>
                         <span class="badge bg-secondary">Old Movie: <?php echo check_old_movies($movie['year'])?> years</span>
@@ -72,7 +73,7 @@
         echo "<a href='movies.php'class='btn btn-primary'>Go back to Movies</a>";
         echo "</div>";
     }
-
+    echo "</div>";
     include("includes/footer.php");
     ?>
 

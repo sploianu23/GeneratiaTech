@@ -1,8 +1,4 @@
-.footer{
-    background-color: antiquewhite;
-    margin: 20px;
-    text-align-last: center;
-}
+
 
 a[href^='mailto']::before {
     content: '📧 ';
@@ -14,3 +10,37 @@ a[href^='mailto']::before {
   ul{
     list-style-type: none;
   }
+  body {
+    background-image: url('assets/background.jpg'); /* Path to your background image */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    color: white; /* Change text color to improve contrast */
+    padding-top: 56px;
+}
+
+.dynamic-time {
+    font-size: 2rem; /* Increase font size */
+    color: black; 
+    animation: pulse 1.5s infinite; /* Pulsing effect */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.content {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 40px; /* Padding for spacing */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Drop shadow for depth */
+    z-index: 2; /* Ensure it appears above the overlay */
+    color:black;
+}
+  
