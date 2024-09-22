@@ -16,7 +16,11 @@
         <title>Search Results for "<?php echo $FRAZA_DE_CAUTARE; ?>"</title>
     </head>
     <body>
+    <div class="mt-5"> <!-- Adjust the margin-top here -->
+        <div class='content'>
         <?php include('includes/search-form.php'); ?>
+    </div>
+    </div>
 
         <!-- Display the search query -->
         <div class="container mt-4">

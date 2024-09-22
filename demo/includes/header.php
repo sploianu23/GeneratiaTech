@@ -22,7 +22,7 @@ $menuItems = [
 ?>
 
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: rgba(255, 255, 255, 0.7);">
     <div class="container-fluid">
         <a class="navbar-brand" href="./index.php"><?php echo Logo; ?></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,12 +38,12 @@ $menuItems = [
                     echo '</li>';
                 }
                 ?>
-                
             </ul>
             <?php require_once("search-form.php") ?>
         </div>
     </div>
 </nav>
+
 
 
 
