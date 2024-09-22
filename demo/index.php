@@ -13,14 +13,14 @@
     <?php require_once("includes/header.php"); ?>
 
     <div class="container flex-grow-1 d-flex justify-content-center align-items-center">
-    <div class="content">
+    <div class="content" style='padding:200px'>
         <h4 class="dynamic-time text-center"><?php echo current_time(); ?></h4>
     
 
 </br>
 <div class="mt-auto text-center mb-4">
     <p>
-        <a href="movies.php" class="btn btn-dark btn-lg">All Movies</a>
+        <a href="movies.php" class="btn btn-outline-dark btn-lg "><strong>Got to Movies</strong></a>
     </p>
     </div>
 </div>
