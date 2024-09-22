@@ -15,7 +15,8 @@ $moviesToDisplay = isset($filteredMovies) ? $filteredMovies : $movies;
         
         <div class="col-md-4 mb-4" id="<?php echo $movie['id']; ?>">
             <div class="card h-100">
-                <img src="<?php echo $movie['posterUrl']; ?>" class="card-img-top" alt="<?php echo htmlspecialchars($movie['title']); ?>">
+            <?php echo '<img src="' . htmlspecialchars($movie['posterUrl']) . '" class="card-img-top" alt="' . htmlspecialchars($movie['title']) . '">';?>
+
                 <div class="card-body">
                     <h5 class="card-title"><?php echo htmlspecialchars($movie['title']); ?></h5>
                     <p class="card-text">
@@ -28,7 +29,7 @@ $moviesToDisplay = isset($filteredMovies) ? $filteredMovies : $movies;
                         }
                         ?>
                     </p>
-                    <a href="movie.php?movie_id=<?php echo $movie['id']; ?>" class="btn btn-primary">Read More</a>
+                    <a href="movie.php?movie_id=<?php echo $movie['id']; ?>" class="btn btn-dark">Read More</a>
                 </div>
             </div>
         </div>
@@ -41,5 +42,5 @@ $moviesToDisplay = isset($filteredMovies) ? $filteredMovies : $movies;
 
 <!-- Go back to the top button -->
 <div class="text-center mt-4">
-    <a href="#top" class="btn btn-secondary">Go back to the top</a>
+    <a href="#top" class="btn btn-dark">Go back to the top</a>
 </div>

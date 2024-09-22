@@ -13,9 +13,15 @@ a[href^='mailto']::before {
   body {
     background-image: url('assets/background.jpg'); /* Path to your background image */
     background-size: cover; /* Cover the entire page */
+    background-attachment: fixed; /* Fixed attachment for scrolling effect */
     background-position: center; /* Center the image */
-    color: white; /* Change text color to improve contrast */
-    padding-top: 56px;
+    color: #333; /* Text color for contrast */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    min-height: 100vh; /* Ensure body takes full height */
+    display: flex; /* Enable flexbox layout */
+    flex-direction: column; /* Stack elements vertically */
+    padding: 56px;
 }
 
 .dynamic-time {

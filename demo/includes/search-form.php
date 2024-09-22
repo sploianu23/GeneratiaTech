@@ -34,7 +34,7 @@
             aria-label="Search" 
             value="<?php echo isset($_GET['s']) ? htmlspecialchars($_GET['s']) : ''; ?>"
         >
-        <button class="btn btn-outline-primary" type="submit" aria-label="Submit Search"><strong>Search</strong></button>
+        <button class="btn btn-outline-dark" type="submit" aria-label="Submit Search"><strong>Search</strong></button>
     </form>
 
     <?php
