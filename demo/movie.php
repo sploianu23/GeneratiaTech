@@ -40,7 +40,7 @@
                         <img src="<?php echo $movie['posterUrl']?>" class="img-fluid rounded float-start" alt="">
                     </div>
                     <div class="col-9">
-                        <p>Released: Apr 26, <?php echo $movie['year']; ?><br>
+                        <p>Released: <?php echo $movie['year']; ?><br>
                         Runtime: <?php echo runtime_prettier($movie['runtime']); ?></p>
                         <p><?php echo $movie['plot']; ?></p>
                         <h6>Genre: <?php echo implode(", ", $movie['genres']); ?></h6>
