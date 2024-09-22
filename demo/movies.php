@@ -41,7 +41,7 @@ if (isset($_GET['genre']) && !empty($_GET['genre'])) {
 
     <?php require_once("includes/header.php"); ?>
 
-    <div class="container mt-4">
+    <div class="container mt-5">
         <div class='content'>
         <h1 class="mb-4"><?php echo $pageTitle; ?></h1>
         

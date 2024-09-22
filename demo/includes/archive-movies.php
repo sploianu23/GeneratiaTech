@@ -29,7 +29,7 @@ $moviesToDisplay = isset($filteredMovies) ? $filteredMovies : $movies;
                         }
                         ?>
                     </p>
-                    <a href="movie.php?movie_id=<?php echo $movie['id']; ?>" class="btn btn-dark">Read More</a>
+                    <a href="movie.php?movie_id=<?php echo $movie['id']; ?>" class="btn btn-outline-dark" style="font-weight: bold;">Read More</a>
                 </div>
             </div>
         </div>
@@ -42,5 +42,7 @@ $moviesToDisplay = isset($filteredMovies) ? $filteredMovies : $movies;
 
 <!-- Go back to the top button -->
 <div class="text-center mt-4">
-    <a href="#top" class="btn btn-dark">Go back to the top</a>
+    <a href="#top" class="btn btn-outline-dark">▲</a>
 </div>
+
+

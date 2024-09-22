@@ -12,7 +12,7 @@
 
     <?php require_once("includes/header.php"); ?>
 
-    <div class="container flex-grow-1 d-flex justify-content-center align-items-center">
+    <div class="container flex-grow-1 d-flex justify-content-center align-items-center mt-5">
     <div class="content" style='padding:200px'>
         <h4 class="dynamic-time text-center"><?php echo current_time(); ?></h4>
     
