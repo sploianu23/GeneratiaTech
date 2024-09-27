@@ -55,3 +55,14 @@ function save_favorites_count($favorites_count) {
     $file_path = 'assets/movie-favorites.json';
     file_put_contents($file_path, json_encode($favorites_count));
 }
+
+function check_poster($img_link){
+    
+
+if (@getimagesize($img_link)) {
+        return $img_link;
+        exit();
+    } else {
+        return "assets/images/placeholder.jpg";
+    }
+}

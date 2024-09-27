@@ -26,6 +26,42 @@ if (isset($_GET['genre']) && !empty($_GET['genre'])) {
     $filteredMovies = $movies;
 }
 ?>
+<?php
+
+
+$filteredMovies = [];
+$pageTitle = 'Movies';
+
+
+if (isset($_GET['page']) && !empty($_GET['page'])) {
+    // Decode the 'favorites' cookie if it exists, otherwise, set it to an empty array
+    $favorites = isset($_COOKIE['favorites']) ? json_decode($_COOKIE['favorites'], true) : [];
+
+
+    // Filter movies by the selected genre
+
+    $filteredMovies = array_filter($movies, function($movie) use ($favorites) {
+        
+        
+            return in_array($movie['id'], $favorites);
+        
+            
+        
+        
+    });
+    if (!empty($filteredMovies)) {
+        $pageTitle = 'Favorited Movies';
+    } else {
+        // If no movies are found for the given genre, show a warning message
+        $warningMessage = "No movies found in the selected genre. Showing all movies.";
+        $filteredMovies = $movies; // Fall back to displaying all movies
+    }
+    
+} else {
+    
+    $filteredMovies = $movies;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

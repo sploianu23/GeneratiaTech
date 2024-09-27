@@ -17,6 +17,7 @@ $menuItems = [
     ['name' => 'Movies', 'link' => 'movies.php', 'active' => false],
     ['name' => 'Contact', 'link' => 'contact.php', 'active' => false],
     ['name' => 'Genres', 'link' => 'genres.php', 'active' => false],
+    ['name' => 'Favorites', 'link' => 'movies.php?page=favorites', 'active' => false],
 ];
 
 ?>

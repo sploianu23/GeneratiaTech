@@ -77,7 +77,7 @@
 
         <div class="row">
             <div class="col-3">
-                <img src="<?php echo $movie['posterUrl'] ?>" class="img-fluid rounded float-start" alt="">
+                <img src="<?php echo check_poster($movie['posterUrl']) ?>" class="img-fluid rounded float-start" alt="">
             </div>
             <div class="col-9">
                 <p>Released: <?php echo $movie['year']; ?><br>
