@@ -35,3 +35,23 @@ function current_time()
         return "Good Night";
     }
 }
+
+function read_favorites_count() {
+    $file_path = 'assets/movie-favorites.json';
+    
+    // Check if the file exists
+    if (file_exists($file_path)) {
+        // Read the file content
+        $data = file_get_contents($file_path);
+        return json_decode($data, true) ?: [];
+    } else {
+        // Create the file with an empty array if it doesn't exist
+        file_put_contents($file_path, json_encode([]));
+        return [];
+    }
+}
+
+function save_favorites_count($favorites_count) {
+    $file_path = 'assets/movie-favorites.json';
+    file_put_contents($file_path, json_encode($favorites_count));
+}

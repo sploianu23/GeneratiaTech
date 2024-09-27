@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="style.css"> <!-- Custom styles if any -->
     
 </head>
-<body style='color:white'>
-    <div class='content'>
+<body style='background-color:white'>
+    <!-- <div class='content'>
 <?php 
-require_once("includes/header.php");
+/*require_once("includes/header.php");
 $images = json_decode(file_get_contents('./assets/movies-list-db.json'), true)['movies'];
 
 
@@ -39,7 +39,20 @@ if (!empty($invalidImages)) {
         echo "Error loading image: $invalidImage<br>";
     }
 }
-?>
+
+*/?>
+</div> -->
+<div class='row'>
+    <div class='col-6'style="background-color:green;">
+        Copil 1
+    </div>
+    <div class='col-8' style="background-color:red;">
+        Copil 2
+    </div>
+    <div class='col-5' style="background-color:blue;">
+        Copil 2
+    </div>
 </div>
+
 </body>
 </html>

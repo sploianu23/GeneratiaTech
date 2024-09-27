@@ -50,3 +50,9 @@ a[href^='mailto']::before {
     color:black;
 }
   
+.parinte{
+  display:flex;
+}
+.copil{
+  width:90%;
+}
