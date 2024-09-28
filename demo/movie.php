@@ -92,6 +92,22 @@
                     </ul>
                 </h6>
                 <h6>Directors: <?php echo $movie['director']; ?></h6>
+                <div class="container mt-5">
+                    <h2 class="mb-4">Rate This Movie</h2>
+                    <form action="process_rating.php" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">Please rate the movie:</label>
+                            <div class="btn-group" role="group" aria-label="Rating group">
+                                <!-- Radio buttons styled as Bootstrap buttons -->
+                                <?php for ($i = 1; $i <= 5; $i++): ?>
+                                    <input type="radio" class="btn-check rating-input" name="rating" id="rating-<?php echo $i; ?>" value="<?php echo $i; ?>" required>
+                                    <label class="btn btn-outline-primary rating-label" for="rating-<?php echo $i; ?>"><?php echo $i; ?></label>
+                                <?php endfor; ?>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Rating</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

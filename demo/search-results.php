@@ -62,18 +62,7 @@
         </div>
 
     <?php
-    } else {
-    ?>
-        <title>Search Error</title>
-    </head>
-    <body>
-        <div class="container mt-4">
-            <p class="text-warning">Warning: The search value can't be blank.</p>
-            <a href="index.php" class='btn btn-primary'>Go back to the Home Page</a>
-        </div>
-    <?php
-    }
-    
+    } 
     ?>
 </div>
     <?php include("includes/footer.php"); ?>

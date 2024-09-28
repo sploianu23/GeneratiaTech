@@ -15,9 +15,9 @@ if($currentFile !== "index.php" && $currentFile!=="contact.php")
 $menuItems = [
     ['name' => 'Home', 'link' => 'index.php', 'active' => true],
     ['name' => 'Movies', 'link' => 'movies.php', 'active' => false],
-    ['name' => 'Contact', 'link' => 'contact.php', 'active' => false],
     ['name' => 'Genres', 'link' => 'genres.php', 'active' => false],
     ['name' => 'Favorites', 'link' => 'movies.php?page=favorites', 'active' => false],
+    ['name' => 'Contact', 'link' => 'contact.php', 'active' => false],
 ];
 
 ?>
@@ -44,6 +44,7 @@ $menuItems = [
         </div>
     </div>
 </nav>
+            </br>
 
 
 

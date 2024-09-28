@@ -56,13 +56,32 @@ function save_favorites_count($favorites_count) {
     file_put_contents($file_path, json_encode($favorites_count));
 }
 
-function check_poster($img_link){
+
     
 
-if (@getimagesize($img_link)) {
-        return $img_link;
-        exit();
-    } else {
-        return "assets/images/placeholder.jpg";
+    function image_exists($url) {
+        // Initialize a cURL session
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_NOBODY, true); // Exclude the body of the response
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Follow redirects if any
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5); // Set a timeout to avoid long waits
+        curl_exec($ch);
+        
+        // Get the HTTP status code
+        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        
+        // Return true if the status code is 200 (OK)
+        return $code == 200;
     }
-}
+    
+    function check_poster($img_url) {
+        // Check if the image exists using image_exists function
+        if (image_exists($img_url)) {
+            return $img_url;
+        } else {
+            // Return the path to the placeholder image if the URL does not exist
+            return "assets/images/placeholder.jpg";
+        }
+    }
+    

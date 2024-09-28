@@ -20,7 +20,7 @@
 </br>
 <div class="mt-auto text-center mb-4">
     <p>
-        <a href="movies.php" class="btn btn-outline-dark btn-lg "><strong>Got to Movies</strong></a>
+        <a href="movies.php" class="btn btn-outline-dark btn-lg "><strong>Go to Movies</strong></a>
     </p>
     </div>
 </div>
