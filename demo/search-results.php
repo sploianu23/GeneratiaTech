@@ -23,7 +23,7 @@
     </div>
 
         <!-- Display the search query -->
-        <div class="container mt-4">
+        <div class="container mt-4 flex-grow-1">
             <div  class="content">
             <h1>Search Results for: <?php echo $FRAZA_DE_CAUTARE; ?></h1>
             

@@ -92,6 +92,49 @@
 
             $averageRating = $ratingCount > 0 ? $totalRatings / $ratingCount : null;
             ?>
+            <?php
+            // Handle form submission
+            $form_submitted = false;
+            $email_exists = false;
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Prelucrează datele formularului
+                $name = htmlspecialchars($_POST['name']);
+                $email = htmlspecialchars($_POST['email']);
+                $message = htmlspecialchars($_POST['message']);
+
+                
+
+                // Mark form as submitted
+                $form_submitted = true;
+
+                //Create connection to db
+                $conn = db_connect();
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                  }
+                $sql = "CREATE TABLE IF NOT EXISTS reviews (
+                    id INT(6) AUTO_INCREMENT PRIMARY KEY,
+                    name VARCHAR(100) NOT NULL,
+                    email VARCHAR(100) NOT NULL,
+                    message VARCHAR(1000) NOT NULL,
+                    movie_id INT(6) NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    )";
+                mysqli_query($conn, $sql);
+                $sql = "SELECT * FROM reviews WHERE email = '{$email}' AND movie_id = {$movie['id']}";
+                $result = mysqli_query($conn, $sql);
+                if(mysqli_num_rows($result)==0){
+                    $sql = "INSERT INTO reviews (name, email, message, movie_id)
+                    VALUES ('$name', '$email', '$message', '$movie[id]')";
+                    mysqli_query($conn, $sql);
+                }else{
+                    $email_exists = true;
+                }
+                
+
+            }
+            ?>
     <title><?php echo $movie['title'] ?></title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -171,7 +214,95 @@
                             </div>
                             <button type="submit" class="btn btn-outline-dark">Submit Rating</button>
                         </form>
+
                     <?php endif; ?>
+                </div>
+                <div class="container mt-5">
+                    <h2>Leave a Review</h2>
+
+                    <!-- Alert Box displayed after form submission -->
+                    <?php if ($form_submitted):
+                        if($email_exists):?>
+                        <div class="alert alert-danger mt-4" role="alert">
+                            This user already submited a review!
+                        </div>
+                        <form method="POST" action="">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Write your message" required></textarea>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="dataAgreement" required>
+                                <label class="form-check-label" for="dataAgreement">I agree to the collection and usage of my data</label>
+                            </div>
+                            <button type="submit" class="btn btn-outline-dark">Submit Review</button>
+                        </form>
+                        <?php else: ?>
+                        <div class="alert alert-success mt-4" role="alert">
+                            Your review has been successfully submitted. Thank you!
+                        </div>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <!-- Form Section -->
+                        <form method="POST" action="">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Write your message" required></textarea>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="dataAgreement" required>
+                                <label class="form-check-label" for="dataAgreement">I agree to the collection and usage of my data</label>
+                            </div>
+                            <button type="submit" class="btn btn-outline-dark">Submit Review</button>
+                        </form>
+                    <?php endif; ?>
+                    <h3 class="mt-5">Reviews</h3>
+                    <div id="reviews">
+                        <!-- Existing reviews will be displayed here -->
+                        <?php 
+                        $conn = db_connect();
+                        if (!$conn) {
+                            die("Connection failed: " . mysqli_connect_error());
+                          }
+                          $tableName = 'reviews';
+                          $sql = "SHOW TABLES LIKE '$tableName'";
+                            $result = mysqli_query($conn, $sql);
+
+                            if (mysqli_num_rows($result) > 0){
+                                $sql = "SELECT name, message FROM reviews WHERE movie_id = {$movie['id']}";
+                                $result = mysqli_query($conn,$sql);
+
+                        if (mysqli_num_rows($result) > 0) {
+                            // output data of each row
+                            while($row = mysqli_fetch_assoc($result)) {
+                              echo  "<h6>" . $row["name"] . " reviewed " . $movie['title'].  "</h6><p>\"" . $row["message"] . "\"</p><br>";
+                            }
+                          } else {
+                            echo "<strong>No reviews yet for ".$movie['title']. ".</strong>";
+                          }
+                            }else{
+                                echo "<strong>No reviews yet for ".$movie['title']. ".</strong>";
+                            }
+
+                        
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

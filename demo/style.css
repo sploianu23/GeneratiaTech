@@ -10,7 +10,7 @@ a[href^='mailto']::before {
   ul{
     list-style-type: none;
   }
-  body {
+  html,body {
     background-image: url('assets/background.jpg'); /* Path to your background image */
     background-size: cover; /* Cover the entire page */
     background-attachment: fixed; /* Fixed attachment for scrolling effect */
@@ -22,6 +22,7 @@ a[href^='mailto']::before {
     display: flex; /* Enable flexbox layout */
     flex-direction: column; /* Stack elements vertically */
     padding: 56px;
+    height:100%;
 }
 
 .dynamic-time {
@@ -48,20 +49,49 @@ a[href^='mailto']::before {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Drop shadow for depth */
     z-index: 2; /* Ensure it appears above the overlay */
     color:black;
+    flex: 1;
 }
   
-.parinte{
-  display:flex;
-}
-.copil{
-  width:90%;
-}
+
 
 .rating-label {
   margin-right: 15px;
   cursor: pointer;
 }
 .rating-input:checked + label {
-  background-color: #0d6efd;
+  
   color: white;
+}
+.form-check-input:checked {
+  background-color: rgb(23, 23, 23); /* Dark gray */
+  border-color: rgb(23, 23, 23);
+}
+.circular-button {
+  display: inline-flex; /* Center the text vertically and horizontally */
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  border: 1px solid white; /* White outline */
+  border-radius: 50%; /* Makes it circular */
+  background-color: transparent; /* Transparent background */
+  color: white; /* Text color */
+  text-decoration: none; /* Remove underline */
+  font-size: 22px; /* Adjust font size */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.circular-button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+}
+.circular-button div {
+  position: absolute;
+  height: 15px;
+  width:15px;
+  border-top:2px solid white;
+  border-left:2px solid white;
+  transform: rotate(45deg);
+  
+  
+
 }

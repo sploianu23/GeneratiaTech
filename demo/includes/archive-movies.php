@@ -40,9 +40,6 @@ $moviesToDisplay = isset($filteredMovies) ? $filteredMovies : $movies;
     ?>
 </div>
 
-<!-- Go back to the top button -->
-<div class="text-center mt-4">
-    <a href="#top" class="btn btn-outline-dark">▲</a>
-</div>
+
 
 

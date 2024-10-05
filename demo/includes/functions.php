@@ -85,3 +85,6 @@ function save_favorites_count($favorites_count) {
         }
     }
     
+    function db_connect($host = "localhost", $username = "php-user", $password = "php-password", $dbname = "php-proiect"){
+        return mysqli_connect($host, $username, $password, $dbname);
+       }
